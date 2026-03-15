@@ -24,6 +24,13 @@
                 <li><a onclick="showPage('produits')" id="nav-produits">Produits</a></li>
                 <li><a onclick="showPage('galerie')" id="nav-galerie">Galerie</a></li>
                 <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+                <!-- ICÔNE PANIER -->
+                <li class="cart-icon-container">
+                    <a onclick="toggleCart()" class="cart-icon" id="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -132,7 +139,7 @@
                         <p class="product-description">Costume 2 pièces en laine peignée, coupe moderne et élégante</p>
                         <div class="product-price">50 000 franc CFA <small>70 000 franc CFA</small></div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Costume Slim Fit')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Costume Slim Fit', 50000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -148,7 +155,7 @@
                         <p class="product-description">Chemise en coton égyptien, coupe ajustée, col français</p>
                         <div class="product-price">8 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Chemise Coton Premium')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Chemise Coton Premium', 8000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -165,7 +172,7 @@
                         <p class="product-description">Blazer en laine et cachemire, parfait pour les occasions spéciales</p>
                         <div class="product-price">11 000 franc CFA<small>15 000 franc CFA</small></div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Blazer Cachemire')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Blazer Cachemire', 11000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -174,7 +181,7 @@
                 <!-- MONTRES -->
                 <div class="product-card" data-category="montres">
                     <div class="product-image">
-                      <img src="https://ae01.alicdn.com/kf/S72fdf87d2d7f4a54af8c1c54db113d3eW/LIGE-Waterproof-Watch-Men-Silicone-Sport-Military-Watch-For-Men-Fashion-Automatic-Date-Men-s-Quartz.jpg">
+                        <img src="https://ae01.alicdn.com/kf/S72fdf87d2d7f4a54af8c1c54db113d3eW/LIGE-Waterproof-Watch-Men-Silicone-Sport-Military-Watch-For-Men-Fashion-Automatic-Date-Men-s-Quartz.jpg" alt="Montre automatique">
                         <span class="product-badge new">Édition limitée</span>
                     </div>
                     <div class="product-info">
@@ -183,7 +190,7 @@
                         <p class="product-description">Mouvement suisse, boîtier acier inoxydable, bracelet cuir</p>
                         <div class="product-price">6 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Montre Automatique')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Montre Automatique', 6000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -191,7 +198,7 @@
 
                 <div class="product-card" data-category="montres">
                     <div class="product-image">
-                          <img src="https://ae01.alicdn.com/kf/S9bd0f839dfd64ae08bb206313439f6d5w.jpg" alt="Montre sport">
+                        <img src="https://i.ebayimg.com/images/g/3lEAAOSwmzllGoq9/s-l1600.jpg" alt="Montre classique">
                     </div>
                     <div class="product-info">
                         <div class="product-category">Montres</div>
@@ -199,7 +206,7 @@
                         <p class="product-description">Design classique, mouvement quartz, bracelet en acier</p>
                         <div class="product-price">7 500 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Montre Chronographe')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Montre Chronographe', 7500)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -215,7 +222,7 @@
                         <p class="product-description">Montre chronomètre étanche 100m, mouvement japonais</p>
                         <div class="product-price">6 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Montre Sport')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Montre Sport', 6000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -232,7 +239,7 @@
                         <p class="product-description">Cuir pleine fleur, semelle cuir, fait main en Italie</p>
                         <div class="product-price">25 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Bottines Chester')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Bottines Chester', 25000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -249,7 +256,7 @@
                         <p class="product-description">Baskets minimalistes en cuir de vachette, semelle crêpe</p>
                         <div class="product-price">20 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Baskets Cuir')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Baskets Cuir', 20000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -265,7 +272,7 @@
                         <p class="product-description">Mocassins en daim, idéaux pour les week-ends</p>
                         <div class="product-price">30 000 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Mocassins Driver')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Mocassins Driver', 30000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -282,7 +289,7 @@
                         <p class="product-description">Ceinture réversible en cuir de vachette, boucle argentée</p>
                         <div class="product-price">2 500 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Ceinture Cuir')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Ceinture Cuir', 2500)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -290,16 +297,16 @@
 
                 <div class="product-card" data-category="accessoires">
                     <div class="product-image">
-                        <img src=https://www.gentleman-boutique.com/wp-content/uploads/2022/08/portefeuille-homme-cuir-veritable-8.jpg alt="Portefeuille">
+                        <img src="https://www.gentleman-boutique.com/wp-content/uploads/2022/08/portefeuille-homme-cuir-veritable-8.jpg" alt="Portefeuille">
                         <span class="product-badge soldes">-15%</span>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Accessoires</div>
                         <h3 class="product-title">Portefeuille Cuir</h3>
                         <p class="product-description">Portefeuille compact 6 places, cuir pleine fleur</p>
-                        <div class="product-price">1500 franc CFA <small>20000 franc CFA</small></div>
+                        <div class="product-price">20 000 franc CFA <small>23 500 franc CFA</small></div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Portefeuille Cuir')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Portefeuille Cuir', 20000)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -311,11 +318,11 @@
                     </div>
                     <div class="product-info">
                         <div class="product-category">Accessoires</div>
-                        <h3 class="product-title">Lunettes Gentle Monster </h3>
+                        <h3 class="product-title">Lunettes Gentle Monster</h3>
                         <p class="product-description">Monture acétate, verres polarisés, protection UV400</p>
                         <div class="product-price">1 500 franc CFA</div>
                         <div class="product-actions">
-                            <button class="btn-add" onclick="addToCart('Lunettes de Soleil')">Ajouter au panier</button>
+                            <button class="btn-add" onclick="addToCart('Lunettes Gentle Monster', 1500)">Ajouter au panier</button>
                             <button class="btn-wishlist">❤️</button>
                         </div>
                     </div>
@@ -479,7 +486,7 @@
                 <div class="banner-item">
                     <i class="fas fa-lock"></i>
                     <h3>Paiement Sécurisé</h3>
-                    <p>Wave, Max It, Mixx By Yas</p>
+                    <p>Wave, Orange Money, Free Money</p>
                 </div>
             </div>
 
@@ -492,7 +499,7 @@
                             <div class="info-icon"><i class="fas fa-store"></i></div>
                             <div class="info-text">
                                 <h3>Boutique principale</h3>
-                                <p>Thiès / Nguinth<br>En face de l'École ACAPES, 2111</p>
+                                <p>Thiès / Nguinth<br>En face de l'École ACAPES</p>
                             </div>
                         </div>
                     </div>
@@ -577,83 +584,87 @@
                     <div id="orderForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="prenom"><i class="fas fa-user"></i> Prénom *</label>
+                                <label for="prenom">Prénom *</label>
                                 <input type="text" id="prenom" placeholder="Votre prénom">
                             </div>
                             <div class="form-group">
-                                <label for="nom"><i class="fas fa-user"></i> Nom *</label>
+                                <label for="nom">Nom *</label>
                                 <input type="text" id="nom" placeholder="Votre nom">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                            <label for="email">Email *</label>
                             <input type="email" id="email" placeholder="votre@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="telephone"><i class="fas fa-phone"></i> Téléphone *</label>
+                            <label for="telephone">Téléphone *</label>
                             <input type="tel" id="telephone" placeholder="+221 77 777 77 77">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="code-postal"><i class="fas fa-map-pin"></i> Code postal *</label>
-                                <input type="text" id="code-postal" placeholder="23 000">
+                                <label for="code-postal">Code postal</label>
+                                <input type="text" id="code-postal" placeholder="23000">
                             </div>
                             <div class="form-group">
-                                <label for="ville"><i class="fas fa-city"></i> Ville *</label>
+                                <label for="ville">Ville *</label>
                                 <input type="text" id="ville" placeholder="Thiès">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="adresse"><i class="fas fa-home"></i> Adresse complète *</label>
-                            <input type="text" id="adresse" placeholder="Numéro, rue, bâtiment...">
+                            <label for="adresse">Adresse complète *</label>
+                            <input type="text" id="adresse" placeholder="Numéro, rue, quartier...">
                         </div>
 
                         <!-- SECTION COMMANDE -->
                         <div class="order-section">
-                            <h3><i class="fas fa-box"></i> Votre commande</h3>
-                            <div class="product-select" id="product1">
-                                <select onchange="updateTotal()">
-                                    <option value="">Sélectionnez un produit</option>
-                                    <option value="349">Costume Slim Fit — 50 000 franc CFA </option>
-                                    <option value="89">Chemise Coton Premium — 8 000 franc CFA</option>
-                                    <option value="299">Blazer Cachemire — 11 000 franc CFA</option>
-                                    <option value="1290">Montre Automatique — 6 000 franc CFA</option>
-                                    <option value="590">Montre Chronographe — 7 500 franc CFA</option>
-                                    <option value="350">Montre Sport — 6 000 franc CFA</option>
-                                    <option value="245">Bottines Chester — 25 000 franc CFA</option>
-                                    <option value="129">Baskets Cuir Blanc — 20 000 franc CFA</option>
-                                    <option value="159">Mocassins Driver — 30 000 franc CFA</option>
-                                    <option value="79">Ceinture Cuir — 2 500 franc CFA</option>
-                                    <option value="59">Portefeuille Cuir — 20000 franc CFA</option>
-                                    <option value="149">Lunettes de Soleil — 1 500 franc CFA</option>
-                                </select>
-                                <input type="number" min="1" value="1" onchange="updateTotal()" style="width:65px;padding:0.6rem;border:2px solid var(--border);border-radius:6px;">
-                                <button type="button" class="remove-product" onclick="removeProduct('product1')"><i class="fas fa-trash"></i></button>
+                            <h3>Votre commande</h3>
+                            <div id="products-container">
+                                <div class="product-select" id="product1">
+                                    <select onchange="updateTotal()">
+                                        <option value="">Sélectionnez un produit</option>
+                                        <option value="50000">Costume Slim Fit — 50 000 CFA</option>
+                                        <option value="8000">Chemise Coton — 8 000 CFA</option>
+                                        <option value="11000">Blazer Cachemire — 11 000 CFA</option>
+                                        <option value="6000">Montre Automatique — 6 000 CFA</option>
+                                        <option value="7500">Montre Chrono — 7 500 CFA</option>
+                                        <option value="6000">Montre Sport — 6 000 CFA</option>
+                                        <option value="25000">Bottines — 25 000 CFA</option>
+                                        <option value="20000">Baskets Cuir — 20 000 CFA</option>
+                                        <option value="30000">Mocassins — 30 000 CFA</option>
+                                        <option value="2500">Ceinture — 2 500 CFA</option>
+                                        <option value="20000">Portefeuille — 20 000 CFA</option>
+                                        <option value="1500">Lunettes — 1 500 CFA</option>
+                                    </select>
+                                    <input type="number" min="1" value="1" onchange="updateTotal()" style="width:70px;">
+                                    <button type="button" class="remove-product" onclick="removeProduct('product1')"><i class="fas fa-trash"></i></button>
+                                </div>
                             </div>
-                            <button type="button" class="add-product" onclick="addProduct()"><i class="fas fa-plus"></i> Ajouter un produit</button>
+                            <button type="button" class="add-product" onclick="addProduct()">
+                                <i class="fas fa-plus"></i> Ajouter un produit
+                            </button>
                             <div class="order-total">
-                                <span><i class="fas fa-receipt"></i> Total estimé :</span>
-                                <span id="total">0 franc CFA</span>
+                                <span>Total :</span>
+                                <span id="total">0 CFA</span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="message"><i class="fas fa-comment"></i> Message / Instructions spéciales</label>
-                            <textarea id="message" placeholder="Précisez vos tailles, couleurs préférées, ou toute information complémentaire..."></textarea>
+                            <label for="message">Message / Instructions</label>
+                            <textarea id="message" placeholder="Précisez vos tailles, couleurs, etc."></textarea>
                         </div>
 
                         <button type="button" class="submit-btn" onclick="submitOrder()">
-                            <i class="fas fa-paper-plane"></i> Envoyer ma commande
+                            <i class="fas fa-paper-plane"></i> Envoyer la commande
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- CARTE -->
+            <!-- MAP -->
             <div class="map-section">
                 <h2><i class="fas fa-map-marked-alt"></i> Venir en boutique</h2>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3857.282906858815!2d-16.927747999999994!3d14.809372000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDQ4JzMzLjciTiAxNsKwNTUnMzkuOSJX!5e0!3m2!1sfr!2ssn!4v1772536063404!5m2!1sfr!2ssn" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3857.282906858815!2d-16.927747999999994!3d14.809372000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDQ4JzMzLjciTiAxNsKwNTUnMzkuOSJX!5e0!3m2!1sfr!2ssn!4v1772536063404!5m2!1sfr!2ssn" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </main>
@@ -669,18 +680,18 @@
             <div class="footer-section">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><a onclick="showPage('accueil')"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a onclick="showPage('produits')"><i class="fas fa-tshirt"></i> Produits</a></li>
-                    <li><a onclick="showPage('galerie')"><i class="fas fa-images"></i> Galerie</a></li>
-                    <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a onclick="showPage('accueil')">Accueil</a></li>
+                    <li><a onclick="showPage('produits')">Produits</a></li>
+                    <li><a onclick="showPage('galerie')">Galerie</a></li>
+                    <li><a onclick="showPage('contact')">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Horaires</h3>
-                <p>Lun — Ven : 10h à 19h</p>
-                <p>Samedi : 10h à 18h</p>
+                <p>Lun — Ven : 10h-19h</p>
+                <p>Samedi : 10h-18h</p>
                 <p>Dimanche : Fermé</p>
-                <p style="margin-top:0.8rem;"><i class="fas fa-phone"></i> +221 77 777 77 77</p>
+                <p style="margin-top:1rem;">📞 +221 77 777 77 77</p>
             </div>
         </div>
         <div class="copyright">
@@ -691,9 +702,33 @@
     <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast"></div>
 
+    <!-- OVERLAY PANIER -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+    <!-- MODAL PANIER -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Votre Panier</h3>
+            <button class="close-cart" onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Les articles s'afficheront ici -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">0 CFA</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-cart clear" onclick="clearCart()"><i class="fas fa-trash"></i> Vider</button>
+                <button class="btn-cart checkout" onclick="checkout()"><i class="fas fa-credit-card"></i> Commander</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // ---- NAVIGATION ----
+        // ========== NAVIGATION ==========
         function showPage(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
@@ -702,9 +737,10 @@
             document.getElementById('nav-' + page).classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeCart();
         }
 
-        // ---- FILTRE PRODUITS ----
+        // ========== FILTRES ==========
         function filterProducts(category, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -718,28 +754,166 @@
             });
         }
 
-        // Aller vers produits avec filtre depuis accueil
         function filterAndGoTo(category) {
             showPage('produits');
             setTimeout(() => {
                 const btns = document.querySelectorAll('.filter-btn');
                 btns.forEach(b => {
-                    if (b.textContent.toLowerCase().includes(category.substring(0, 5)) || 
-                        (category === 'vetements' && b.textContent.includes('Vêtements')) ||
-                        (category === 'chaussures' && b.textContent.includes('Chaussures')) ||
-                        (category === 'accessoires' && b.textContent.includes('Accessoires')) ||
-                        (category === 'montres' && b.textContent.includes('Montres'))) {
+                    if (b.textContent.toLowerCase().includes(category.substring(0, 5))) {
                         filterProducts(category, b);
                     }
                 });
             }, 100);
         }
 
-        // ---- PANIER (toast) ----
-        function addToCart(product) {
-            showToast('✓ ' + product + ' ajouté au panier !');
+        // ========== GESTION DU PANIER ==========
+        let cart = [];
+
+        function loadCart() {
+            const savedCart = localStorage.getItem('midnightCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            updateCartDisplay();
         }
 
+        function saveCart() {
+            localStorage.setItem('midnightCart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function addToCart(productName, price) {
+            const existingProduct = cart.find(item => item.name === productName);
+            
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({
+                    id: Date.now() + Math.random(),
+                    name: productName,
+                    price: price,
+                    quantity: 1,
+                    image: getProductImage(productName)
+                });
+            }
+            
+            saveCart();
+            showToast('✓ ' + productName + ' ajouté au panier !');
+            animateCartIcon();
+        }
+
+        function getProductImage(productName) {
+            const productCards = document.querySelectorAll('.product-card');
+            for (let card of productCards) {
+                const title = card.querySelector('.product-title');
+                if (title && title.textContent.includes(productName)) {
+                    const img = card.querySelector('.product-image img');
+                    if (img) return img.src;
+                }
+            }
+            return 'https://via.placeholder.com/70';
+        }
+
+        function updateCartDisplay() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cart-total').textContent = total.toLocaleString('fr-FR') + ' CFA';
+            
+            const cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Votre panier est vide</p>
+                        <p style="font-size:0.8rem; margin-top:1rem;">Découvrez notre collection</p>
+                    </div>
+                `;
+            } else {
+                let html = '';
+                cart.forEach(item => {
+                    html += `
+                        <div class="cart-item" data-id="${item.id}">
+                            <div class="cart-item-img">
+                                <img src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">${item.price.toLocaleString('fr-FR')} CFA</div>
+                                <div class="cart-item-quantity">
+                                    <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
+                                </div>
+                            </div>
+                            <button class="remove-item" onclick="removeFromCart('${item.id}')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+                cartItemsContainer.innerHTML = html;
+            }
+        }
+
+        function updateQuantity(id, change) {
+            const item = cart.find(i => i.id == id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                } else {
+                    saveCart();
+                }
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id != id);
+            saveCart();
+            showToast('🗑️ Article retiré du panier');
+        }
+
+        function clearCart() {
+            if (cart.length > 0) {
+                cart = [];
+                saveCart();
+                showToast('🗑️ Panier vidé');
+                closeCart();
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('⚠️ Votre panier est vide');
+                return;
+            }
+            closeCart();
+            showPage('contact');
+            showToast('📝 Complétez le formulaire de commande');
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            const overlay = document.getElementById('cart-overlay');
+            modal.classList.toggle('open');
+            overlay.classList.toggle('show');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').classList.remove('open');
+            document.getElementById('cart-overlay').classList.remove('show');
+        }
+
+        function animateCartIcon() {
+            const icon = document.getElementById('cart-icon');
+            icon.style.transform = 'scale(1.2)';
+            setTimeout(() => icon.style.transform = 'scale(1)', 200);
+        }
+
+        // ========== TOAST ==========
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
@@ -747,42 +921,41 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // ---- FORMULAIRE COMMANDE ----
+        // ========== FORMULAIRE COMMANDE ==========
         let productCount = 1;
 
         function addProduct() {
             productCount++;
-            const div = document.createElement('div');
-            div.className = 'product-select';
-            div.id = 'product' + productCount;
-            div.innerHTML = `
+            const container = document.getElementById('products-container');
+            const newProduct = document.createElement('div');
+            newProduct.className = 'product-select';
+            newProduct.id = 'product' + productCount;
+            newProduct.innerHTML = `
                 <select onchange="updateTotal()">
                     <option value="">Sélectionnez un produit</option>
-                    <option value="50 000">Costume Slim Fit — 50 000 franc CFA </option>
-                    <option value="8 000">Chemise Coton Premium — 8 000 franc CFA</option>
-                    <option value="11 000">Blazer Cachemire — 11 000 franc CFA</option>
-                    <option value="6 000">Montre Automatique — 6 000 franc CFA</option>
-                    <option value="7 000">Montre Chronographe — 7 000 franc CFA</option>
-                    <option value="6 000">Montre Sport — 6 000 franc CFA</option>
-                    <option value="25 000">Bottines Chester — 25 000 franc CFA</option>
-                    <option value="20 000">Baskets Cuir Blanc — 20 000 franc CFA</option>
-                    <option value="30 000">Mocassins Driver — 30 000 franc CFA</option>
-                    <option value="2 500">Ceinture Cuir — 2 500 franc CFA </option>
-                    <option value="2 000">Portefeuille Cuir — 2 000 franc CFA</option>
-                    <option value="1 500">Lunettes de Soleil — 1 500 franc CFA</option>
+                    <option value="50000">Costume Slim Fit — 50 000 CFA</option>
+                    <option value="8000">Chemise Coton — 8 000 CFA</option>
+                    <option value="11000">Blazer Cachemire — 11 000 CFA</option>
+                    <option value="6000">Montre Automatique — 6 000 CFA</option>
+                    <option value="7500">Montre Chrono — 7 500 CFA</option>
+                    <option value="6000">Montre Sport — 6 000 CFA</option>
+                    <option value="25000">Bottines — 25 000 CFA</option>
+                    <option value="20000">Baskets Cuir — 20 000 CFA</option>
+                    <option value="30000">Mocassins — 30 000 CFA</option>
+                    <option value="2500">Ceinture — 2 500 CFA</option>
+                    <option value="20000">Portefeuille — 20 000 CFA</option>
+                    <option value="1500">Lunettes — 1 500 CFA</option>
                 </select>
-                <input type="number" min="1" value="1" onchange="updateTotal()" style="width:65px;padding:0.6rem;border:2px solid var(--border);border-radius:6px;">
+                <input type="number" min="1" value="1" onchange="updateTotal()" style="width:70px;">
                 <button type="button" class="remove-product" onclick="removeProduct('product${productCount}')"><i class="fas fa-trash"></i></button>
             `;
-            const addBtn = document.querySelector('.add-product');
-            addBtn.parentNode.insertBefore(div, addBtn);
+            container.appendChild(newProduct);
             updateTotal();
         }
 
         function removeProduct(id) {
-            const el = document.getElementById(id);
-            if (el && document.querySelectorAll('.product-select').length > 1) {
-                el.remove();
+            if (document.querySelectorAll('.product-select').length > 1) {
+                document.getElementById(id).remove();
                 updateTotal();
             }
         }
@@ -793,10 +966,10 @@
                 const sel = row.querySelector('select');
                 const qty = row.querySelector('input[type="number"]');
                 if (sel && sel.value && qty) {
-                    total += parseInt(sel.value) * parseInt(qty.value || 1);
+                    total += parseInt(sel.value) * parseInt(qty.value);
                 }
             });
-            document.getElementById('total').textContent = total.toLocaleString('fr-FR') + ' franc CFA';
+            document.getElementById('total').textContent = total.toLocaleString('fr-FR') + ' CFA';
         }
 
         function submitOrder() {
@@ -812,6 +985,15 @@
 
             showToast('✅ Commande envoyée ! Nous vous contacterons bientôt.');
         }
+
+        // ========== INITIALISATION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeCart();
+            });
+        });
     </script>
 </body>
 </html>
