@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDNIGHT STYLE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="site-header">
+        <nav>
+            <div class="logo-container" onclick="showPage('accueil')">
+                <div class="logo-rond">🌙</div>
+                <div class="logo-texte">
+                    MIDNIGHT
+                    <span>STYLE</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('accueil')" id="nav-accueil" class="active">Accueil</a></li>
+                <li><a onclick="showPage('produits')" id="nav-produits">Produits</a></li>
+                <li><a onclick="showPage('galerie')" id="nav-galerie">Galerie</a></li>
+                <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== PAGE : ACCUEIL ========== -->
+    <div id="page-accueil" class="page active">
+        <main>
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>MIDNIGHT <span>STYLE</span></h1>
+                    <p class="slogan">"Le style est une façon de dire qui vous êtes sans avoir à parler"</p>
+                    <a class="btn" onclick="showPage('produits')">Découvrir la collection</a>
+                </div>
+            </section>
+
+            <!-- FEATURES -->
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">👔</div>
+                    <h3>Qualité Premium</h3>
+                    <p>Des matériaux soigneusement sélectionnés pour un confort et une durabilité exceptionnels</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Style Unique</h3>
+                    <p>Des pièces exclusives qui reflètent votre personnalité et votre élégance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Livraison Rapide</h3>
+                    <p>Expédition rapide et livraison offerte dès 30 000 Franc CFA d'achat</p>
+                </div>
+            </section>
+
+            <!-- CATÉGORIES -->
+            <h2 class="section-title">Nos Catégories</h2>
+            <div class="categories">
+                <div class="category-item" onclick="filterAndGoTo('vetements')">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400" alt="Vêtements">
+                    <div class="category-overlay">
+                        <h3>Vêtements</h3>
+                        <p>Costumes, chemises, pantalons</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="filterAndGoTo('montres')">
+                    <img src="https://www.bijourama.com/media/produits/lotus-montres/img/montre-homme-lotus-18938-3-bracelet-acier-argent_3606686-5_1140x1140.jpg" alt="Montres">
+                    <div class="category-overlay">
+                        <h3>Montres</h3>
+                        <p>Luxe et précision</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="filterAndGoTo('chaussures')">
+                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400" alt="Chaussures">
+                    <div class="category-overlay">
+                        <h3>Chaussures</h3>
+                        <p>Souliers, boots, baskets</p>
+                    </div>
+                </div>
+                <div class="category-item" onclick="filterAndGoTo('accessoires')">
+                    <img src="https://www.gentleman-boutique.com/wp-content/uploads/2022/08/portefeuille-homme-cuir-veritable-8.jpg" alt="Accessoires">
+                    <div class="category-overlay">
+                        <h3>Accessoires</h3>
+                        <p>Ceintures, bracelets, lunettes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TESTIMONIAL -->
+            <section class="testimonial">
+                <p>"Une boutique d'exception avec des produits de grande qualité. Le service est impeccable et le conseil personnalisé."</p>
+                <p class="testimonial-author">— Client satisfait, Thiès</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- ========== PAGE : PRODUITS ========== -->
+    <div id="page-produits" class="page">
+        <main>
+            <h1 class="page-title">Notre Collection</h1>
+
+            <!-- FILTRES -->
+            <section class="filters-section">
+                <h3 class="filters-title">Filtrer par catégorie :</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProducts('tous', this)">Tous</button>
+                    <button class="filter-btn" onclick="filterProducts('vetements', this)">Vêtements</button>
+                    <button class="filter-btn" onclick="filterProducts('montres', this)">Montres</button>
+                    <button class="filter-btn" onclick="filterProducts('chaussures', this)">Chaussures</button>
+                    <button class="filter-btn" onclick="filterProducts('accessoires', this)">Accessoires</button>
+                </div>
+            </section>
+
+            <!-- GRILLE PRODUITS -->
+            <div class="products-grid">
+
+                <!-- VÊTEMENTS -->
+                <div class="product-card" data-category="vetements">
+                    <div class="product-image">
+                        <img src="https://image.made-in-china.com/2f0j00hWbokmVDrUcK/Three-Piece-Suits-Tailor-Business-Blaze-Fashion-Bespoke-Office-Man-Suit.jpg" alt="Costume élégant">
+                        <span class="product-badge new">Nouveau</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Vêtements</div>
+                        <h3 class="product-title">Costume Slim Fit</h3>
+                        <p class="product-description">Costume 2 pièces en laine peignée, coupe moderne et élégante</p>
+                        <div class="product-price">50 000 franc CFA <small>70 000 franc CFA</small></div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Costume Slim Fit')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="vetements">
+                    <div class="product-image">
+                        <img src="https://ouku-cf.rightinthebox.com/images/640x853/202209/bps/product/inc/knruwn1662428994047.jpg" alt="Chemise blanche">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Vêtements</div>
+                        <h3 class="product-title">Chemise Coton Premium</h3>
+                        <p class="product-description">Chemise en coton égyptien, coupe ajustée, col français</p>
+                        <div class="product-price">8 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Chemise Coton Premium')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="vetements">
+                    <div class="product-image">
+                        <img src="https://arturocalle.vteximg.com.br/arquivos/ids/774351/HOMBRE-PANTALON-10144989-HABANO-340_1.jpg?v=638917385162970000" alt="Blazer bleu">
+                        <span class="product-badge soldes">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Vêtements</div>
+                        <h3 class="product-title">Blazer Cachemire</h3>
+                        <p class="product-description">Blazer en laine et cachemire, parfait pour les occasions spéciales</p>
+                        <div class="product-price">11 000 franc CFA<small>15 000 franc CFA</small></div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Blazer Cachemire')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MONTRES -->
+                <div class="product-card" data-category="montres">
+                    <div class="product-image">
+                        <img src="https://ae01.alicdn.com/kf/S72fdf87d2d7f4a54af8c1c54db113d3eW/LIGE-Waterproof-Watch-Men-Silicone-Sport-Military-Watch-For-Men-Fashion-Automatic-Date-Men-s-Quartz.jpg">
+                        <span class="product-badge new">Édition limitée</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Montres</div>
+                        <h3 class="product-title">Montre Automatique</h3>
+                        <p class="product-description">Mouvement suisse, boîtier acier inoxydable, bracelet cuir</p>
+                        <div class="product-price">6 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Montre Automatique')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="montres">
+                    <div class="product-image">
+                        <img src="https://i.ebayimg.com/images/g/3lEAAOSwmzllGoq9/s-l1600.jpg" alt="Montre classique">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Montres</div>
+                        <h3 class="product-title">Montre Chronographe</h3>
+                        <p class="product-description">Design classique, mouvement quartz, bracelet en acier</p>
+                        <div class="product-price">7 500 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Montre Chronographe')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="montres">
+                    <div class="product-image">
+                        <img src="https://ae01.alicdn.com/kf/S9bd0f839dfd64ae08bb206313439f6d5w.jpg" alt="Montre sport">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Montres</div>
+                        <h3 class="product-title">Montre Sport</h3>
+                        <p class="product-description">Montre chronomètre étanche 100m, mouvement japonais</p>
+                        <div class="product-price">6 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Montre Sport')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHAUSSURES -->
+                <div class="product-card" data-category="chaussures">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400" alt="Bottines cuir">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chaussures</div>
+                        <h3 class="product-title">Bottines Chester</h3>
+                        <p class="product-description">Cuir pleine fleur, semelle cuir, fait main en Italie</p>
+                        <div class="product-price">25 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Bottines Chester')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="chaussures">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="Baskets">
+                        <span class="product-badge new">Nouveau</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chaussures</div>
+                        <h3 class="product-title">Baskets Cuir</h3>
+                        <p class="product-description">Baskets minimalistes en cuir de vachette, semelle crêpe</p>
+                        <div class="product-price">20 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Baskets Cuir')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="chaussures">
+                    <div class="product-image">
+                        <img src="https://www.reginald.ro/wp-content/uploads/2024/09/pantofi-talpa-inalta-21.jpg" alt="Mocassins">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chaussures</div>
+                        <h3 class="product-title">Mocassins Driver</h3>
+                        <p class="product-description">Mocassins en daim, idéaux pour les week-ends</p>
+                        <div class="product-price">30 000 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Mocassins Driver')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACCESSOIRES -->
+                <div class="product-card" data-category="accessoires">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400" alt="Ceinture">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessoires</div>
+                        <h3 class="product-title">Ceinture Cuir</h3>
+                        <p class="product-description">Ceinture réversible en cuir de vachette, boucle argentée</p>
+                        <div class="product-price">2 500 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Ceinture Cuir')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessoires">
+                    <div class="product-image">
+                        <img src=https://www.gentleman-boutique.com/wp-content/uploads/2022/08/portefeuille-homme-cuir-veritable-8.jpg alt="Portefeuille">
+                        <span class="product-badge soldes">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessoires</div>
+                        <h3 class="product-title">Portefeuille Cuir</h3>
+                        <p class="product-description">Portefeuille compact 6 places, cuir pleine fleur</p>
+                        <div class="product-price">1500 franc CFA <small>20000 franc CFA</small></div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Portefeuille Cuir')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessoires">
+                    <div class="product-image">
+                        <img src="https://dongho168.com/wp-content/uploads/2021/05/kinh-mat-gentle-monster-nam-nu-2.jpg" alt="Lunettes">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessoires</div>
+                        <h3 class="product-title">Lunettes Gentle Monster </h3>
+                        <p class="product-description">Monture acétate, verres polarisés, protection UV400</p>
+                        <div class="product-price">1 500 franc CFA</div>
+                        <div class="product-actions">
+                            <button class="btn-add" onclick="addToCart('Lunettes de Soleil')">Ajouter au panier</button>
+                            <button class="btn-wishlist">❤️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BANNIÈRE PROMO -->
+            <section class="promo-banner">
+                <h2>Livraison Gratuite</h2>
+                <p>Pour toute commande supérieure à 30 000 Franc CFA</p>
+                <div class="promo-code">CODE: SSDDIIAA6452</div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ========== PAGE : GALERIE ========== -->
+    <div id="page-galerie" class="page">
+        <main>
+            <h1 class="page-title">Galerie & Inspirations</h1>
+
+            <div class="gallery-intro">
+                <p>Plongez dans l'univers de l'élégance masculine à travers nos photos et mises en scène. Laissez-vous inspirer pour créer votre propre style.</p>
+            </div>
+
+            <!-- BOUTIQUE -->
+            <h2 class="section-title">Notre Boutique</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="https://uniquekiosk.com/wp-content/uploads/2020/04/2-3-2-1536x1113.jpg" alt="Vitrine boutique">
+                    <div class="gallery-overlay">
+                        <h3>Vitrine Élégante</h3>
+                        <p>Notre vitrine mise à jour chaque saison avec les dernières tendances</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://apexdisplay.com.au/wp-content/uploads/2020/03/Mitch-Graham-My-bridal-Centre-Website-Project-5.jpg" alt="Intérieur boutique">
+                    <div class="gallery-overlay">
+                        <h3>Espace Costumes</h3>
+                        <p>Notre collection de costumes sur mesure</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.fratellowatches.com/cdn-cgi/image/anim=false/wp-content/uploads/2023/12/Omega-Watchbox-4.jpg" alt="Rayon montres">
+                    <div class="gallery-overlay">
+                        <h3>Espace Montres</h3>
+                        <p>Découvrez notre sélection de garde-temps</p>
+                    </div>
+                </div>
+                <div class="gallery-item wide">
+                    <img src="https://kusumin.com/wp-content/uploads/2018/10/d24a52db4fa11c574ddff5995fe32161.jpg" alt="Espace chaussures">
+                    <div class="gallery-overlay">
+                        <h3>Espace Chaussures</h3>
+                        <p>Une collection de souliers pour toutes les occasions</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" alt="Espace accessoires">
+                    <div class="gallery-overlay">
+                        <h3>Espace Accessoires</h3>
+                        <p>Ceintures, bracelets, lunettes et plus encore</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=600" alt="Coin détente">
+                    <div class="gallery-overlay">
+                        <h3>Espace Conseil</h3>
+                        <p>Nos conseillers sont à votre écoute</p>
+                    </div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="https://tolcu.com/2018-erkek-takimi-mannheim.jpg" alt="Présentation costume">
+                    <div class="gallery-overlay">
+                        <h3>Présentation</h3>
+                        <p>Nos tenues mises en scène</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://img.freepik.com/premium-photo/rack-with-pants-modern-shop_392895-261884.jpg" alt="Accessoires de luxe">
+                    <div class="gallery-overlay">
+                        <h3>Accessoires de Luxe</h3>
+                        <p>Les détails qui font la différence</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOOKBOOK -->
+            <h2 class="section-title">Lookbook 2025</h2>
+            <div class="lookbook-grid">
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600" alt="Look 1">
+                    <div class="lookbook-info">
+                        <h3>Style Business</h3>
+                        <p>Costume bleu nuit, chemise blanche, chaussures Oxford</p>
+                        <a class="shop-look" onclick="showPage('produits')">Voir le look</a>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://i.etsystatic.com/19677262/r/il/82e4d3/5718135734/il_1588xN.5718135734_bxj4.jpg" alt="Look 2">
+                    <div class="lookbook-info">
+                        <h3>Casual Chic</h3>
+                        <p>Blazer en tweed, jean brut, baskets cuir</p>
+                        <a class="shop-look" onclick="showPage('produits')">Voir le look</a>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://moubarak.shop/cdn/shop/files/XWWMSU3-1200x1200.webp?v=1656185314&width=1000" alt="Look 3">
+                    <div class="lookbook-info">
+                        <h3>Soirée Élégante</h3>
+                        <p>Smoking noir, nœud papillon, montre habillée</p>
+                        <a class="shop-look" onclick="showPage('produits')">Voir le look</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÉTAILS -->
+            <h2 class="section-title">Détails qui font la différence</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <img src="https://i.pinimg.com/736x/b5/c6/3b/b5c63bd11f941d57fb49db069e82c80d.jpg" alt="Détail costume">
+                    <div class="detail-overlay"><p>Style De Mode</p></div>
+                </div>
+                <div class="detail-item">
+                    <img src="https://www.marfilheritage.com/media/wysiwyg/blog/marfil-vender-un-reloj-usado-de-alta-gama-puede-proporcionarte-ingresos-importantes.jpg" alt="Détail montre">
+                    <div class="detail-overlay"><p>Le Petit Poussoir</p></div>
+                </div>
+                <div class="detail-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0640/7972/4757/files/stores1.png?v=1651771822" alt="Détail chaussure">
+                    <div class="detail-overlay"><p>Semelle cousue main</p></div>
+                </div>
+                <div class="detail-item">
+                    <img src="https://xploudshop.com/wp-content/uploads/2021/09/Kit-Presente-Masculino-Suit-Xploudshop-768x768.jpg" alt="Détail ceinture">
+                    <div class="detail-overlay"><p>Coffret Homme</p></div>
+                </div>
+            </div>
+
+            <section class="inspo-banner">
+                <h2>Inspirez-vous, Créez votre style</h2>
+                <p>Découvrez nos looks complets et composez votre tenue idéale avec nos conseils personnalisés</p>
+                <a class="btn" onclick="showPage('produits')">Découvrir la collection</a>
+            </section>
+        </main>
+    </div>
+
+    <!-- ========== PAGE : CONTACT ========== -->
+    <div id="page-contact" class="page">
+        <main>
+            <h1 class="page-title">Contact & Commande</h1>
+
+            <!-- BANNIÈRE INFO -->
+            <div class="contact-banner">
+                <div class="banner-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Livraison Offerte</h3>
+                    <p>Dès 30 000 Franc CFA</p>
+                </div>
+                <div class="banner-item">
+                    <i class="fas fa-rotate-left"></i>
+                    <h3>Retours Gratuits</h3>
+                    <p>Sous 1 jour</p>
+                </div>
+                <div class="banner-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Paiement Sécurisé</h3>
+                    <p>Wave, Max It, Mixx By Yas</p>
+                </div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- INFOS -->
+                <div class="contact-info">
+                    <div class="info-section">
+                        <h2><i class="fas fa-map-pin"></i> Nous trouver</h2>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-store"></i></div>
+                            <div class="info-text">
+                                <h3>Boutique principale</h3>
+                                <p>Thiès / Nguinth<br>En face de l'École ACAPES, 2111</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h2><i class="fas fa-phone-alt"></i> Nous contacter</h2>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-phone"></i></div>
+                            <div class="info-text">
+                                <h3>Téléphone</h3>
+                                <p><a href="tel:+221777777777">+221 77 777 77 77</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info-text">
+                                <h3>Email</h3>
+                                <p><a href="mailto:contact@midnight-style.sn">contact@midnight-style.sn</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-globe"></i></div>
+                            <div class="info-text">
+                                <h3>Site web</h3>
+                                <p><a href="#">www.midnight-style.sn</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RÉSEAUX SOCIAUX -->
+                    <div class="info-section">
+                        <h2><i class="fas fa-share-alt"></i> Suivez-nous</h2>
+                        <div class="social-grid">
+                            <a href="#" class="social-item whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <div class="social-info"><h4>WhatsApp</h4><p>+221 77 777 77 77</p></div>
+                            </a>
+                            <a href="#" class="social-item instagram">
+                                <i class="fab fa-instagram"></i>
+                                <div class="social-info"><h4>Instagram</h4><p>@MIDNIGHT.STYLE</p></div>
+                            </a>
+                            <a href="#" class="social-item facebook">
+                                <i class="fab fa-facebook"></i>
+                                <div class="social-info"><h4>Facebook</h4><p>/MIDNIGHT.STYLE</p></div>
+                            </a>
+                            <a href="#" class="social-item twitter">
+                                <i class="fab fa-twitter"></i>
+                                <div class="social-info"><h4>Twitter</h4><p>@MIDNIGHT.STYLE</p></div>
+                            </a>
+                            <a href="#" class="social-item tiktok">
+                                <i class="fab fa-tiktok"></i>
+                                <div class="social-info"><h4>TikTok</h4><p>@MIDNIGHT.STYLE</p></div>
+                            </a>
+                            <a href="#" class="social-item pinterest">
+                                <i class="fab fa-pinterest"></i>
+                                <div class="social-info"><h4>Pinterest</h4><p>@MIDNIGHT.STYLE</p></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- HORAIRES -->
+                    <div class="schedule">
+                        <h3><i class="fas fa-clock"></i> Horaires d'ouverture</h3>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Lundi — Vendredi</span>
+                            <span>10h00 — 19h00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Samedi</span>
+                            <span>10h00 — 18h00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-day">Dimanche</span>
+                            <span class="schedule-closed">Fermé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULAIRE -->
+                <div class="contact-form">
+                    <h2><i class="fas fa-shopping-cart"></i> Formulaire de commande</h2>
+                    <div id="orderForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prenom"><i class="fas fa-user"></i> Prénom *</label>
+                                <input type="text" id="prenom" placeholder="Votre prénom">
+                            </div>
+                            <div class="form-group">
+                                <label for="nom"><i class="fas fa-user"></i> Nom *</label>
+                                <input type="text" id="nom" placeholder="Votre nom">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" id="email" placeholder="votre@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone"><i class="fas fa-phone"></i> Téléphone *</label>
+                            <input type="tel" id="telephone" placeholder="+221 77 777 77 77">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="code-postal"><i class="fas fa-map-pin"></i> Code postal *</label>
+                                <input type="text" id="code-postal" placeholder="23 000">
+                            </div>
+                            <div class="form-group">
+                                <label for="ville"><i class="fas fa-city"></i> Ville *</label>
+                                <input type="text" id="ville" placeholder="Thiès">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse"><i class="fas fa-home"></i> Adresse complète *</label>
+                            <input type="text" id="adresse" placeholder="Numéro, rue, bâtiment...">
+                        </div>
+
+                        <!-- SECTION COMMANDE -->
+                        <div class="order-section">
+                            <h3><i class="fas fa-box"></i> Votre commande</h3>
+                            <div class="product-select" id="product1">
+                                <select onchange="updateTotal()">
+                                    <option value="">Sélectionnez un produit</option>
+                                    <option value="349">Costume Slim Fit — 50 000 franc CFA </option>
+                                    <option value="89">Chemise Coton Premium — 8 000 franc CFA</option>
+                                    <option value="299">Blazer Cachemire — 11 000 franc CFA</option>
+                                    <option value="1290">Montre Automatique — 6 000 franc CFA</option>
+                                    <option value="590">Montre Chronographe — 7 500 franc CFA</option>
+                                    <option value="350">Montre Sport — 6 000 franc CFA</option>
+                                    <option value="245">Bottines Chester — 25 000 franc CFA</option>
+                                    <option value="129">Baskets Cuir Blanc — 20 000 franc CFA</option>
+                                    <option value="159">Mocassins Driver — 30 000 franc CFA</option>
+                                    <option value="79">Ceinture Cuir — 2 500 franc CFA</option>
+                                    <option value="59">Portefeuille Cuir — 20000 franc CFA</option>
+                                    <option value="149">Lunettes de Soleil — 1 500 franc CFA</option>
+                                </select>
+                                <input type="number" min="1" value="1" onchange="updateTotal()" style="width:65px;padding:0.6rem;border:2px solid var(--border);border-radius:6px;">
+                                <button type="button" class="remove-product" onclick="removeProduct('product1')"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <button type="button" class="add-product" onclick="addProduct()"><i class="fas fa-plus"></i> Ajouter un produit</button>
+                            <div class="order-total">
+                                <span><i class="fas fa-receipt"></i> Total estimé :</span>
+                                <span id="total">0 franc CFA</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Message / Instructions spéciales</label>
+                            <textarea id="message" placeholder="Précisez vos tailles, couleurs préférées, ou toute information complémentaire..."></textarea>
+                        </div>
+
+                        <button type="button" class="submit-btn" onclick="submitOrder()">
+                            <i class="fas fa-paper-plane"></i> Envoyer ma commande
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARTE -->
+            <div class="map-section">
+                <h2><i class="fas fa-map-marked-alt"></i> Venir en boutique</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3857.282906858815!2d-16.927747999999994!3d14.809372000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDQ4JzMzLjciTiAxNsKwNTUnMzkuOSJX!5e0!3m2!1sfr!2ssn!4v1772536063404!5m2!1sfr!2ssn" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MIDNIGHT STYLE</h3>
+                <p>Votre destination pour une garde-robe raffinée et des accessoires d'exception. Basés à Thiès, Sénégal.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a onclick="showPage('accueil')"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a onclick="showPage('produits')"><i class="fas fa-tshirt"></i> Produits</a></li>
+                    <li><a onclick="showPage('galerie')"><i class="fas fa-images"></i> Galerie</a></li>
+                    <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lun — Ven : 10h à 19h</p>
+                <p>Samedi : 10h à 18h</p>
+                <p>Dimanche : Fermé</p>
+                <p style="margin-top:0.8rem;"><i class="fas fa-phone"></i> +221 77 777 77 77</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 MIDNIGHT STYLE. Tous droits réservés. — Thiès, Sénégal</p>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ---- NAVIGATION ----
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
+            document.getElementById('page-' + page).classList.add('active');
+            document.getElementById('nav-' + page).classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ---- FILTRE PRODUITS ----
+        function filterProducts(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'tous' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Aller vers produits avec filtre depuis accueil
+        function filterAndGoTo(category) {
+            showPage('produits');
+            setTimeout(() => {
+                const btns = document.querySelectorAll('.filter-btn');
+                btns.forEach(b => {
+                    if (b.textContent.toLowerCase().includes(category.substring(0, 5)) || 
+                        (category === 'vetements' && b.textContent.includes('Vêtements')) ||
+                        (category === 'chaussures' && b.textContent.includes('Chaussures')) ||
+                        (category === 'accessoires' && b.textContent.includes('Accessoires')) ||
+                        (category === 'montres' && b.textContent.includes('Montres'))) {
+                        filterProducts(category, b);
+                    }
+                });
+            }, 100);
+        }
+
+        // ---- PANIER (toast) ----
+        function addToCart(product) {
+            showToast('✓ ' + product + ' ajouté au panier !');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ---- FORMULAIRE COMMANDE ----
+        let productCount = 1;
+
+        function addProduct() {
+            productCount++;
+            const div = document.createElement('div');
+            div.className = 'product-select';
+            div.id = 'product' + productCount;
+            div.innerHTML = `
+                <select onchange="updateTotal()">
+                    <option value="">Sélectionnez un produit</option>
+                    <option value="50 000">Costume Slim Fit — 50 000 franc CFA </option>
+                    <option value="8 000">Chemise Coton Premium — 8 000 franc CFA</option>
+                    <option value="11 000">Blazer Cachemire — 11 000 franc CFA</option>
+                    <option value="6 000">Montre Automatique — 6 000 franc CFA</option>
+                    <option value="7 000">Montre Chronographe — 7 000 franc CFA</option>
+                    <option value="6 000">Montre Sport — 6 000 franc CFA</option>
+                    <option value="25 000">Bottines Chester — 25 000 franc CFA</option>
+                    <option value="20 000">Baskets Cuir Blanc — 20 000 franc CFA</option>
+                    <option value="30 000">Mocassins Driver — 30 000 franc CFA</option>
+                    <option value="2 500">Ceinture Cuir — 2 500 franc CFA </option>
+                    <option value="2 000">Portefeuille Cuir — 2 000 franc CFA</option>
+                    <option value="1 500">Lunettes de Soleil — 1 500 franc CFA</option>
+                </select>
+                <input type="number" min="1" value="1" onchange="updateTotal()" style="width:65px;padding:0.6rem;border:2px solid var(--border);border-radius:6px;">
+                <button type="button" class="remove-product" onclick="removeProduct('product${productCount}')"><i class="fas fa-trash"></i></button>
+            `;
+            const addBtn = document.querySelector('.add-product');
+            addBtn.parentNode.insertBefore(div, addBtn);
+            updateTotal();
+        }
+
+        function removeProduct(id) {
+            const el = document.getElementById(id);
+            if (el && document.querySelectorAll('.product-select').length > 1) {
+                el.remove();
+                updateTotal();
+            }
+        }
+
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.product-select').forEach(row => {
+                const sel = row.querySelector('select');
+                const qty = row.querySelector('input[type="number"]');
+                if (sel && sel.value && qty) {
+                    total += parseInt(sel.value) * parseInt(qty.value || 1);
+                }
+            });
+            document.getElementById('total').textContent = total.toLocaleString('fr-FR') + ' franc CFA';
+        }
+
+        function submitOrder() {
+            const prenom = document.getElementById('prenom').value.trim();
+            const nom = document.getElementById('nom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telephone = document.getElementById('telephone').value.trim();
+
+            if (!prenom || !nom || !email || !telephone) {
+                showToast('⚠️ Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+
+            showToast('✅ Commande envoyée ! Nous vous contacterons bientôt.');
+        }
+    </script>
+</body>
+</html>
